@@ -789,6 +789,13 @@ def randint_like(x, low, high=None) -> Var:
 
     return randint(low, high, x.shape, x.dtype)
 
+def empty_like(x, dtype=None) -> Var:
+    '''
+    Returns a var filled with uninitialized data with the same shape as x.
+    '''
+    if dtype is None: dtype = x.dtype
+    return jt.empty(x.shape, dtype)
+    
 def normal(mean, std, size=None, dtype="float32") -> Var:
     ''' samples random values from a normal distribution.
 
